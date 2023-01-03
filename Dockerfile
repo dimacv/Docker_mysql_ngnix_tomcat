@@ -64,6 +64,7 @@ RUN apt-get -y install openssh-server supervisor
 RUN mkdir /var/run/sshd; chmod 755 /var/run/sshd
 RUN mkdir /root/.ssh; chown root. /root/.ssh; chmod 700 /root/.ssh
 RUN ssh-keygen -A
+COPY files/supervisord.conf /etc/supervisor/supervisord.conf
 
 # Очистить APT.
 RUN apt-get clean && apt autoremove -y && \
